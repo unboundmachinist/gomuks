@@ -877,7 +877,12 @@ func (c *Container) HandleTyping(_ mautrix.EventSource, evt *event.Event) {
 func (c *Container) MarkRead(roomID id.RoomID, eventID id.EventID) {
 	go func() {
 		defer debug.Recover()
-		err := c.client.MarkRead(roomID, eventID)
+		var err error
+		if c.config.Preferences.DisableReadReceipts {
+			err = c.client.MarkReadPrivate(roomID, eventID)
+		} else {
+			err = c.client.MarkRead(roomID, eventID)
+		}
 		if err != nil {
 			debug.Printf("Failed to mark %s in %s as read: %v", eventID, roomID, err)
 		}

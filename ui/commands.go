@@ -982,6 +982,7 @@ var toggleMsg = map[string]ToggleMessage{
 	"notifications": SimpleToggleMessage("desktop notifications"),
 	"unverified":    SimpleToggleMessage("sending messages to unverified devices"),
 	"showurls":      SimpleToggleMessage("show URLs in text format"),
+	"readreceipts":  SimpleToggleMessage("sending read receipts"),
 	"inlineurls":    InvertedToggleMessage("use fancy terminal features to render URLs inside text"),
 	"newline":       NewlineKeybindMessage("should <alt+enter> make a new line or send the message"),
 }
@@ -1042,6 +1043,8 @@ func cmdToggle(cmd *Command) {
 			continue
 		case "newline":
 			val = &cmd.Config.Preferences.AltEnterToSend
+		case "readreceipts":
+			val = &cmd.Config.Preferences.DisableReadReceipts
 		default:
 			cmd.Reply("Unknown toggle %s. Use /toggle without arguments for a list of togglable things.", thing)
 			return
