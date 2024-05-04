@@ -70,6 +70,20 @@ func autocompleteToggle(cmd *CommandAutocomplete) (completions []string, newText
 	return
 }
 
+func autocompleteTags(cmd *CommandAutocomplete) (completions []string, newText string) {
+	tags := cmd.Room.MxRoom().RawTags
+	completions = make([]string, 0, len(tags))
+	for _, tag := range tags {
+		if strings.HasPrefix(tag.Tag, cmd.RawArgs) {
+			completions = append(completions, tag.Tag)
+		}
+	}
+	if len(completions) == 1 {
+		newText = fmt.Sprintf("/%s %s", cmd.OrigCommand, completions[0])
+	}
+	return
+}
+
 var staticPowerLevelKeys = []string{"ban", "kick", "redact", "invite", "state_default", "events_default", "users_default"}
 
 func autocompletePowerLevel(cmd *CommandAutocomplete) (completions []string, newText string) {
