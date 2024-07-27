@@ -1026,8 +1026,6 @@ func cmdToggle(cmd *Command) {
 				cmd.Reply("Force-enabled using fancy terminal features to render URLs inside text. Restart gomuks to apply changes.")
 			}
 			continue
-		case "newline":
-			val = &cmd.Config.Preferences.AltEnterToSend
 		case "readreceipts":
 			val = &cmd.Config.Preferences.DisableReadReceipts
 		default:
