@@ -67,6 +67,9 @@ func main() {
 		debug.RecoverPrettyPanic = false
 		debug.DeadlockDetection = true
 		debug.WriteLogs = true
+	} else if debugLevel == "2" {
+		debug.RecoverPrettyPanic = false
+		debug.WriteLogs = true
 	}
 	debug.Initialize()
 	defer debug.Recover()
