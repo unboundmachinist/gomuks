@@ -907,6 +907,54 @@ func cmdSetState(cmd *Command) {
 	}
 }
 
+func cmdShowPrefs(cmd *Command) {
+	var buf strings.Builder
+	buf.WriteString("Current preferences:\n")
+	for toggle, _ := range toggleMsg {
+		var val *bool
+		switch toggle {
+		case "rooms":
+			val = &cmd.Config.Preferences.HideRoomList
+		case "users":
+			val = &cmd.Config.Preferences.HideUserList
+		case "timestamps":
+			val = &cmd.Config.Preferences.HideTimestamp
+		case "baremessages":
+			eval := !cmd.Config.Preferences.BareMessageView
+			val = &eval
+		case "images":
+			val = &cmd.Config.Preferences.DisableImages
+		case "typingnotif":
+			val = &cmd.Config.Preferences.DisableTypingNotifs
+		case "emojis":
+			val = &cmd.Config.Preferences.DisableEmojis
+		case "html":
+			val = &cmd.Config.Preferences.DisableHTML
+		case "markdown":
+			val = &cmd.Config.Preferences.DisableMarkdown
+		case "downloads":
+			val = &cmd.Config.Preferences.DisableDownloads
+		case "notifications":
+			val = &cmd.Config.Preferences.DisableNotifications
+		case "unverified":
+			val = &cmd.Config.SendToVerifiedOnly
+		case "showurls":
+			val = &cmd.Config.Preferences.DisableShowURLs
+		case "inlineurls":
+			eval := cmd.Config.Preferences.InlineURLMode != "enable"
+			val = &eval
+		case "readreceipts":
+			val = &cmd.Config.Preferences.DisableReadReceipts
+		default:
+			cmd.Reply("Unknown toggle %s. Use /toggle without arguments for a list of togglable things.", toggle)
+			return
+		}
+		_, _ = fmt.Fprintf(&buf, "* %s: %t\n", toggle, !*val)
+	}
+	cmd.Reply(buf.String()[:buf.Len()-1])
+	return
+}
+
 type ToggleMessage interface {
 	Name() string
 	Format(state bool) string

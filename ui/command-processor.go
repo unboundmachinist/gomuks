@@ -113,6 +113,7 @@ func NewCommandProcessor(parent *MainView) *CommandProcessor {
 			"cs":         {"cross-signing"},
 			"power":      {"powerlevel"},
 			"pl":         {"powerlevel"},
+			"prefs":      {"showprefs"},
 		},
 		autocompleters: map[string]CommandAutocompleter{
 			"devices":       autocompleteUser,
@@ -147,6 +148,7 @@ func NewCommandProcessor(parent *MainView) *CommandProcessor {
 			"unban":      cmdUnban,
 			"powerlevel": cmdPowerLevel,
 			"toggle":     cmdToggle,
+			"showprefs":  cmdShowPrefs,
 			"logout":     cmdLogout,
 			"accept":     cmdAccept,
 			"reject":     cmdReject,
