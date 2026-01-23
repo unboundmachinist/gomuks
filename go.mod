@@ -1,6 +1,6 @@
 module maunium.net/go/gomuks
 
-go 1.21
+go 1.24.0
 
 require (
 	github.com/alecthomas/chroma v0.10.0
@@ -10,7 +10,7 @@ require (
 	github.com/lithammer/fuzzysearch v1.1.8
 	github.com/lucasb-eyer/go-colorful v1.2.0
 	github.com/mattn/go-runewidth v0.0.15
-	github.com/mattn/go-sqlite3 v1.14.22
+	github.com/mattn/go-sqlite3 v1.14.33
 	github.com/rivo/uniseg v0.4.7
 	github.com/sasha-s/go-deadlock v0.3.1
 	github.com/yuin/goldmark v1.7.4
@@ -20,7 +20,7 @@ require (
 	go.mau.fi/mauview v0.2.1
 	go.mau.fi/tcell v0.4.0
 	golang.org/x/image v0.18.0
-	golang.org/x/net v0.27.0
+	golang.org/x/net v0.49.0
 	gopkg.in/toast.v1 v1.0.0-20180812000517-0a84660828b2
 	gopkg.in/vansante/go-ffprobe.v2 v2.2.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -34,20 +34,25 @@ require (
 	github.com/gdamore/encoding v1.0.0 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
+	github.com/mattn/go-colorable v0.1.14 // indirect
+	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d // indirect
-	github.com/petermattis/goid v0.0.0-20180202154549-b0b1615b78e5 // indirect
+	github.com/petermattis/goid v0.0.0-20260113132338-7c7de50cc741 // indirect
+	github.com/rs/zerolog v1.34.0 // indirect
 	github.com/tidwall/gjson v1.17.1 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
-	golang.org/x/crypto v0.25.0 // indirect
-	golang.org/x/sys v0.22.0 // indirect
-	golang.org/x/term v0.22.0 // indirect
-	golang.org/x/text v0.16.0 // indirect
+	go.mau.fi/util v0.9.5 // indirect
+	golang.org/x/crypto v0.47.0 // indirect
+	golang.org/x/exp v0.0.0-20260112195511-716be5621a96 // indirect
+	golang.org/x/sys v0.40.0 // indirect
+	golang.org/x/term v0.39.0 // indirect
+	golang.org/x/text v0.33.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	maunium.net/go/maulogger/v2 v2.3.2 // indirect
 )
 
 replace github.com/mattn/go-runewidth => github.com/tulir/go-runewidth v0.0.14-0.20221113132156-dc2fc6d28246
 
-replace maunium.net/go/mautrix => github.com/unboundmachinist/mautrix-gomuks v0.0.0-20240817201223-6e56030f237e
+replace maunium.net/go/mautrix => github.com/unboundmachinist/mautrix-gomuks v0.0.0-20260123130647-2e82ca965468
